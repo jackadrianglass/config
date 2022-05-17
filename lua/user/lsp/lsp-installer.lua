@@ -21,5 +21,5 @@ lsp_installer.on_server_ready(function(server)
     opts = vim.tbl_deep_extend('force', sumneko_opts, opts)
   end
 
-  sever:setup(opts)
+  server:setup(opts)
 end)

@@ -1,10 +1,11 @@
 -- Manage all of your plugin installations
+-- Checkout the awesome neovim github page for more if you need them
 local fn = vim.fn
 
 -- Bootstrap packer if not already installed
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system {
+  PACKER_BOOTSTRAP = fn.system {
     'git',
     'clone',
     '--depth',
@@ -39,17 +40,17 @@ packer.init {
   },
 }
 
-return packer.startup(function()
+return packer.startup(function(use)
   -- Packer manages itself --
   use 'wbthomason/packer.nvim'
 
   -- Commonly used by others
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
+  use 'windwp/nvim-autopairs'
 
   -- Colorschemes
   use 'sainnhe/gruvbox-material'
-
 
   -- Autocompletion
   use 'hrsh7th/nvim-cmp'
@@ -67,11 +68,27 @@ return packer.startup(function()
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
 
+  -- Telescope fuzzy finding --
+  use 'nvim-telescope/telescope.nvim'
+  use 'nvim-telescope/telescope-media-files.nvim'
+
+  -- Treesitter
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  }
+  use "p00f/nvim-ts-rainbow"
+  use "nvim-treesitter/playground"
+
+  -- Git integrations
+  use 'lewis6991/gitsigns.nvim'
+
   -- QoL
   use 'cappyzawa/trim.nvim'
+  use 'numToStr/Comment.nvim'
 
   -- Boostrap packer
-  if packer_bootstrap then
+  if PACKER_BOOTSTRAP then
     require('packer').sync()
   end
   -- DO NOT PUT ANY MORE PLUGINS HERE
