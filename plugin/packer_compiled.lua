@@ -119,6 +119,16 @@ _G.packer_plugins = {
     path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gruvbox-material",
     url = "https://github.com/sainnhe/gruvbox-material"
   },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  ["nightfox.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-autopairs",
@@ -139,6 +149,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-transparent"] = {
+    loaded = true,
+    path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-transparent",
+    url = "https://github.com/xiyaowong/nvim-transparent"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter",
@@ -148,6 +163,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-ts-rainbow",
     url = "https://github.com/p00f/nvim-ts-rainbow"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,

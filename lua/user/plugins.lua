@@ -47,10 +47,11 @@ return packer.startup(function(use)
   -- Commonly used by others
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
-  use 'windwp/nvim-autopairs'
 
   -- Colorschemes
   use 'sainnhe/gruvbox-material'
+  use 'EdenEast/nightfox.nvim'
+  use 'xiyaowong/nvim-transparent'
 
   -- Autocompletion
   use 'hrsh7th/nvim-cmp'
@@ -86,6 +87,13 @@ return packer.startup(function(use)
   -- QoL
   use 'cappyzawa/trim.nvim'
   use 'numToStr/Comment.nvim'
+  use 'windwp/nvim-autopairs'
+
+  -- UI
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
 
   -- Boostrap packer
   if PACKER_BOOTSTRAP then

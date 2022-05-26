@@ -10,3 +10,6 @@ require('user.gitsigns')
 require('user.lsp')
 require('user.telescope')
 require('user.treesitter')
+require('user.lualine')
+require('user.trim')
+

@@ -1,9 +1,15 @@
 -- Color scheme
 
-local scheme = "gruvbox-material"
+local schemes = {
+  "nightfox",
+  "dayfox",
+  "nordfox",
+  "terafox",
+  "gruvbox-material",
+}
 
-local status_ok, _ = pcall(vim.cmd, "colorscheme " .. scheme)
+local status_ok, _ = pcall(vim.cmd, "colorscheme " .. schemes[math.random(#schemes)])
 if not status_ok then
-  vim.notify("colorscheme " .. scheme .. " not found!")
   return
 end
+
