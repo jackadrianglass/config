@@ -189,6 +189,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
+  ["startup.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\startup.nvim",
+    url = "https://github.com/startup-nvim/startup.nvim"
+  },
   ["telescope-media-files.nvim"] = {
     loaded = true,
     path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope-media-files.nvim",
