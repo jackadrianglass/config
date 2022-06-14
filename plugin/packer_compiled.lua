@@ -124,10 +124,20 @@ _G.packer_plugins = {
     path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["neo-tree.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neo-tree.nvim",
+    url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
+  },
   ["nightfox.nvim"] = {
     loaded = true,
     path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nightfox.nvim",
     url = "https://github.com/EdenEast/nightfox.nvim"
+  },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -204,10 +214,10 @@ _G.packer_plugins = {
     path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["trim.nvim"] = {
+  ["which-key.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\trim.nvim",
-    url = "https://github.com/cappyzawa/trim.nvim"
+    path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   }
 }
 

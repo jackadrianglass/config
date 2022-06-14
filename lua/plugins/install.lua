@@ -85,9 +85,9 @@ return packer.startup(function(use)
   use 'lewis6991/gitsigns.nvim'
 
   -- QoL
-  use 'cappyzawa/trim.nvim'
   use 'numToStr/Comment.nvim'
   use 'windwp/nvim-autopairs'
+  use 'folke/which-key.nvim'
 
   -- UI
   use {
@@ -97,6 +97,15 @@ return packer.startup(function(use)
   use {
     "startup-nvim/startup.nvim",
     requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
+  }
+  use {
+  "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    }
   }
 
   -- Boostrap packer

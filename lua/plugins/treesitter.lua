@@ -7,7 +7,6 @@ configs.setup {
     enable = true, -- false will disable the whole extension
     disable = { "" }, -- list of language that will be disabled
     additional_vim_regex_highlighting = false,
-
   },
   indent = { enable = true, disable = { "yaml" } }, -- disable indentation if it's not to your liking
   autopairs = {
