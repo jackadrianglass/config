@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  gruvbox = {
+    loaded = true,
+    path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gruvbox",
+    url = "https://github.com/morhetz/gruvbox"
+  },
   ["gruvbox-material"] = {
     loaded = true,
     path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gruvbox-material",
@@ -199,25 +204,30 @@ _G.packer_plugins = {
     path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
-  ["startup.nvim"] = {
+  ["spellsitter.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\startup.nvim",
-    url = "https://github.com/startup-nvim/startup.nvim"
-  },
-  ["telescope-media-files.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope-media-files.nvim",
-    url = "https://github.com/nvim-telescope/telescope-media-files.nvim"
+    path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\spellsitter.nvim",
+    url = "https://github.com/lewis6991/spellsitter.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
     path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["trouble.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\trouble.nvim",
+    url = "https://github.com/folke/trouble.nvim"
+  },
   ["which-key.nvim"] = {
     loaded = true,
     path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\which-key.nvim",
     url = "https://github.com/folke/which-key.nvim"
+  },
+  ["zephyr-nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\Jack Glass\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\zephyr-nvim",
+    url = "https://github.com/glepnir/zephyr-nvim"
   }
 }
 

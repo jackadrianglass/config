@@ -49,7 +49,9 @@ return packer.startup(function(use)
   use 'nvim-lua/plenary.nvim'
 
   -- Colorschemes
+  use 'morhetz/gruvbox'
   use 'sainnhe/gruvbox-material'
+  use 'glepnir/zephyr-nvim'
   use 'EdenEast/nightfox.nvim'
   use 'xiyaowong/nvim-transparent'
 
@@ -68,10 +70,13 @@ return packer.startup(function(use)
   -- LSP plugins --
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+  }
 
   -- Telescope fuzzy finding --
   use 'nvim-telescope/telescope.nvim'
-  use 'nvim-telescope/telescope-media-files.nvim'
 
   -- Treesitter
   use {
@@ -88,6 +93,7 @@ return packer.startup(function(use)
   use 'numToStr/Comment.nvim'
   use 'windwp/nvim-autopairs'
   use 'folke/which-key.nvim'
+  use 'lewis6991/spellsitter.nvim'
 
   -- UI
   use {
@@ -95,15 +101,11 @@ return packer.startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
   use {
-    "startup-nvim/startup.nvim",
-    requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
-  }
-  use {
   "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
     requires = {
       "nvim-lua/plenary.nvim",
-      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+      "kyazdani42/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     }
   }

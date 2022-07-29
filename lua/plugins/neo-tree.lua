@@ -5,7 +5,7 @@ if not status_ok then
   return
 end
 
-vim.cmd [[ let g:neo_tree_remove_legacy_commands = 1 ]]
+vim.g['neo_tree_remove_legacy_commands'] = 1
 
 -- Currently with defaults. Fix as you go
 neo_tree.setup {
@@ -30,7 +30,7 @@ neo_tree.setup {
   log_level = "info", -- "trace", "debug", "info", "warn", "error", "fatal"
   log_to_file = false, -- true, false, "/path/to/file.log", use :NeoTreeLogs to show the file
   open_files_in_last_window = true, -- false = open files in top left window
-  popup_border_style = "shadow", -- "double", "none", "rounded", "shadow", "single" or "solid"
+  popup_border_style = "rounded", -- "double", "none", "rounded", "shadow", "single" or "solid"
   resize_timer_interval = 500, -- in ms, needed for containers to redraw right aligned and faded content
   -- set to -1 to disable the resize timer entirely
   --                           -- NOTE: this will speed up to 50 ms for 1 second following a resize
@@ -46,13 +46,13 @@ neo_tree.setup {
   --      -- add something to the state that can be used by custom components
   --    end
   --  },
-  --  {
-  --    event = "file_opened",
-  --    handler = function(file_path)
-  --      --auto close
-  --      require("neo-tree").close_all()
-  --    end
-  --  },
+  {
+    event = "file_opened",
+    handler = function(file_path)
+      --auto close
+      require("neo-tree").close_all()
+    end
+  },
   --  {
   --    event = "file_opened",
   --    handler = function(file_path)
@@ -203,7 +203,7 @@ neo_tree.setup {
   nesting_rules = {},
   window = { -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
     -- possible options. These can also be functions that return these options.
-    position = "left", -- left, right, float, current
+    position = "float", -- left, right, float, current
     width = 40, -- applies to left and right positions
     popup = { -- settings that apply to float position only
       size = {
@@ -353,19 +353,6 @@ neo_tree.setup {
         ["<bs>"] = "navigate_up",
         ["."] = "set_root",
         ["bd"] = "buffer_delete",
-      },
-    },
-  },
-  git_status = {
-    window = {
-      mappings = {
-        ["A"] = "git_add_all",
-        ["gu"] = "git_unstage_file",
-        ["ga"] = "git_add_file",
-        ["gr"] = "git_revert_file",
-        ["gc"] = "git_commit",
-        ["gp"] = "git_push",
-        ["gg"] = "git_commit_and_push",
       },
     },
   },

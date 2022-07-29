@@ -75,14 +75,14 @@ local function lsp_keymaps(bufnr)
       N = {"<cmd>lua vim.diagnostic.goto_prev()<CR>", "Previous diagnostic"},
       l = {"<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = 'rounded' })<CR>", "Show Line Diagnostics"},
       r = {"<cmd>lua vim.lsp.buf.rename()<CR>", "Rename Symbol"},
-      a = {"<cmd>lua vim.lsp.buf.code_action({ border = 'rounded' })", "Show Available Code Actions"},
-      f = {"<cmd>lua vim.lsp.buf.formatting()", "Format the current buffer"}
+      a = {"<cmd>lua vim.lsp.buf.code_action({ border = 'rounded' })<CR>", "Show Available Code Actions"},
+      f = {"<cmd>lua vim.lsp.buf.formatting()<CR>", "Format the current buffer"}
     },
     g = {
       D = {"<cmd>lua vim.lsp.buf.declaration()<CR>", "Go to declaration"},
       d = {"<cmd>lua vim.lsp.buf.definition()<CR>", "Go to definition"},
       i = {"<cmd>lua vim.lsp.buf.implementation()<CR>", "Go to implementation"},
-      r = {"<cmd>lua vim.lsp.buf.references()"}
+      r = {"<cmd>lua vim.lsp.buf.references()<CR>"}
     }
   })
 end
