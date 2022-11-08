@@ -95,3 +95,21 @@ telescope.setup {
     -- please take a look at the readme of the extension you want to configure
   },
 }
+
+local wk = require("which-key")
+
+wk.register({
+  ["<leader>t"] = {
+    name = "Telescope",
+    f = {"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>", "Find Files"},
+    g = {"<cmd>lua require('telescope.builtin').live_grep()<CR>", "Live Grep"},
+    o = {"<cmd>lua require('telescope.builtin').live_grep({grep_open_files = true})<CR>", "Live Grep Open"},
+    s = {"<cmd>lua require('telescope.builtin').treesitter()<CR>", "Buffer Symbols"},
+    c = {"<cmd>lua require('telescope.builtin').git_bcommits()<CR>", "Git History of Current Buffer"},
+    b = {"<cmd>lua require('telescope.builtin').buffers({ignore_current_buffer = true, sort_lastused = true})<CR>", "Current open buffers"},
+    z = {"<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<CR>", "Live preview of colorschemes"},
+    R = {"<cmd>lua require('telescope.builtin').registers()<CR>", "Vim Registers"},
+    r = {"<cmd>lua require('telescope.builtin').lsp_references()<CR>", "LSP references"},
+    d = {"<cmd>lua require('telescope.builtin').diagnostics()<CR>", "Line Diagnostics"}
+  }
+})
