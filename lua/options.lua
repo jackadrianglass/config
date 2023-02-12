@@ -2,7 +2,7 @@
 local opts = {
   backup = false,
   clipboard = "unnamedplus",
-  cmdheight = 1,
+  cmdheight = 0,
   completeopt = { "menuone", "noselect" },
   conceallevel = 0,
   fileencoding = "utf-8",
@@ -45,4 +45,4 @@ end
 vim.cmd [[set whichwrap+=<,>,[,],h,l]]
 vim.cmd [[set iskeyword+=-]]
 
-vim.cmd [[colorscheme gruvbox]]
+vim.cmd.colorscheme('nightfox')

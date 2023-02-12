@@ -52,11 +52,11 @@ cmp.setup {
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     },
-    ["<C-j>"] = cmp.select_next_item {},
-    ["<C-k>"] = cmp.select_prev_item {},
+    ["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<C-k>"] = cmp.mapping.select_prev_item(),
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
-    ["<Right>"] = cmp.mapping.confirm { select = true },
+    ["<C-y>"] = cmp.mapping.confirm { select = true },
     ["<Tab>"] = cmp.mapping.confirm { select = true },
   },
   formatting = {
@@ -89,11 +89,4 @@ cmp.setup {
     ghost_text = true,
   },
 }
-
--- If you want insert `(` after select function or method item
-local ap_status_ok, cmp_autopairs = pcall(require, 'nvim-autopairs.completion.cmp')
-if not ap_status_ok then
-  return
-end
-cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
 

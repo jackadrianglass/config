@@ -1,11 +1,9 @@
 local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 
--- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
 --Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -43,29 +41,19 @@ keymap("v", ">", ">gv", opts)
 -- Better terminal navigation
 keymap("t", "<C-e>", "<C-\\><C-N>", term_opts)
 
--- Telescope keymaps
 local wk = require("which-key")
 
 wk.register({
-  ["<leader>n"] = {
-    name = "Neotree",
-    n = {"<cmd>Neotree toggle<CR>", "Toggle Neotree"},
-    t = {"<cmd>Neotree filesystem<CR>", "Show the filesystem"},
-    r = {"<cmd>Neotree filesystem right<CR>", "Show the filesystem on the right"},
-    b = {"<cmd>Neotree buffers<CR>", "Show the filesystem on the right"},
-  },
-  ["<leader>f"] = {"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", "Find Files"},
-  ["<leader>t"] = {
-    name = "Telescope",
-    f = {"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>", "Find Files"},
-    g = {"<cmd>lua require('telescope.builtin').live_grep()<CR>", "Live Grep"},
-    o = {"<cmd>lua require('telescope.builtin').live_grep({grep_open_files = true})<CR>", "Live Grep Open"},
-    s = {"<cmd>lua require('telescope.builtin').treesitter()<CR>", "Buffer Symbols"},
-    c = {"<cmd>lua require('telescope.builtin').git_bcommits()<CR>", "Git History of Current Buffer"},
-    b = {"<cmd>lua require('telescope.builtin').buffers({ignore_current_buffer = true, sort_lastused = true})<CR>", "Current open buffers"},
-    z = {"<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<CR>", "Live preview of colorschemes"},
-    R = {"<cmd>lua require('telescope.builtin').registers()<CR>", "Vim Registers"},
-    r = {"<cmd>lua require('telescope.builtin').lsp_references()<CR>", "LSP references"},
-    d = {"<cmd>lua require('telescope.builtin').diagnostics()<CR>", "Line Diagnostics"}
+  ["<leader>"] = {
+    b = { "<cmd>lua require('telescope.builtin').buffers({ignore_current_buffer = true, sort_lastused = true})<CR>",
+      "Current open buffers" },
+    d = { "<cmd>lua require('telescope.builtin').diagnostics()<CR>", "Line Diagnostics" },
+    f = { "<cmd>lua require'telescope.builtin'.fd(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
+      "Find Files" },
+    g = { "<cmd>lua require('telescope.builtin').live_grep()<CR>", "Live Grep" },
+    G = { "<cmd>lua require('telescope.builtin').live_grep({grep_open_files = true})<CR>", "Live Grep Open" },
+    r = { "<cmd>lua require('telescope.builtin').lsp_references()<CR>", "LSP references" },
+    R = { "<cmd>lua require('telescope.builtin').registers()<CR>", "Vim Registers" },
+    t = { "<cmd>Neotree toggle filesystem float reveal<CR>", "Show the filesystem" },
   }
 })

@@ -1,8 +1,3 @@
-local status_ok, _ = pcall(require, 'lspconfig')
-if not status_ok then
-  return
-end
-
 local signs = {
   { name = "DiagnosticSignError", text = "" },
   { name = "DiagnosticSignWarn", text = "" },
@@ -15,7 +10,6 @@ for _, sign in ipairs(signs) do
 end
 
 local config = {
-  -- disable virtual text
   virtual_text = true,
   -- show signs
   signs = {
@@ -54,7 +48,7 @@ local function lsp_highlight_document(client)
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
-    ]],
+    ]] ,
       false
     )
   end
@@ -63,23 +57,23 @@ end
 local function lsp_keymaps(bufnr)
   local wk = require "which-key"
   wk.register({
-    ["K"] = {"<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Help"},
-    ["<C-k>"] = {"<cmd>lua vim.lsp.buf.hover()<CR>", "Hover"},
+    ["K"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover" },
+    ["<A-K>"] = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Help" },
     ["<leader>l"] = {
       name = "LSP",
-      d = {"<cmd>lua vim.diagnostic.open_float()<CR>", "Diagnostic Float"},
-      n = {"<cmd>lua vim.diagnostic.goto_next()<CR>", "Next diagnostic"},
-      N = {"<cmd>lua vim.diagnostic.goto_prev()<CR>", "Previous diagnostic"},
-      l = {"<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = 'rounded' })<CR>", "Show Line Diagnostics"},
-      r = {"<cmd>lua vim.lsp.buf.rename()<CR>", "Rename Symbol"},
-      a = {"<cmd>lua vim.lsp.buf.code_action({ border = 'rounded' })<CR>", "Show Available Code Actions"},
-      f = {"<cmd>lua vim.lsp.buf.formatting()<CR>", "Format the current buffer"}
+      d = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Diagnostic Float" },
+      l = { "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = 'rounded' })<CR>", "Show Line Diagnostics" },
+      r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename Symbol" },
+      a = { "<cmd>lua vim.lsp.buf.code_action({ border = 'rounded' })<CR>", "Show Available Code Actions" },
+      f = { "<cmd>lua vim.lsp.buf.format { async = true }<CR>", "Format the current buffer" }
     },
     g = {
-      D = {"<cmd>lua vim.lsp.buf.declaration()<CR>", "Go to declaration"},
-      d = {"<cmd>lua vim.lsp.buf.definition()<CR>", "Go to definition"},
-      i = {"<cmd>lua vim.lsp.buf.implementation()<CR>", "Go to implementation"},
-      r = {"<cmd>lua vim.lsp.buf.references()<CR>"}
+      l = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next diagnostic" },
+      h = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Previous diagnostic" },
+      D = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Go to declaration" },
+      d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Go to definition" },
+      i = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Go to implementation" },
+      r = { "<cmd>lua vim.lsp.buf.references()<CR>" }
     }
   })
 end
@@ -91,7 +85,7 @@ end
 
 local client_capabilities = vim.lsp.protocol.make_client_capabilities()
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
-cmp_nvim_lsp.default_capabilities(client_capabilities)
+local _ = cmp_nvim_lsp.default_capabilities(client_capabilities)
 
 local lspconfig = require('lspconfig')
 
@@ -102,7 +96,7 @@ lspconfig.sumneko_lua.setup {
   on_attach = on_attach,
   config = {
     settings = {
-      Lua = {
+      lua = {
         diagnostics = {
           globals = { 'vim' },
         },
@@ -116,5 +110,5 @@ lspconfig.sumneko_lua.setup {
     },
   }
 }
-lspconfig.elmls.setup {on_attach = on_attach }
-lspconfig.rust_analyzer.setup {on_attach = on_attach }
+lspconfig.elmls.setup { on_attach = on_attach }
+lspconfig.rust_analyzer.setup { on_attach = on_attach }
