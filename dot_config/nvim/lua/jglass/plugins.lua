@@ -18,16 +18,14 @@ require('lazy').setup({
 	-- Common
 	'nvim-lua/plenary.nvim',
 	"nvim-tree/nvim-web-devicons",
+	"rose-pine/nvim",
 
 	{ -- LSP Configuration & Plugins
 		'neovim/nvim-lspconfig',
 		dependencies = {
-			{ 'williamboman/mason.nvim',          config = true },
-			{ 'williamboman/mason-lspconfig.nvim' },
 			{ 'j-hui/fidget.nvim',                tag = 'legacy' },
 			{ 'folke/neodev.nvim' },
 			{ "simrat39/rust-tools.nvim" },
-			-- { "epwalsh/obsidian.nvim", }
 		},
 	},
 
@@ -55,12 +53,9 @@ require('lazy').setup({
 
 	{ -- Treesitter
 		'nvim-treesitter/nvim-treesitter',
-		dependencies = {
-			'nvim-treesitter/nvim-treesitter-textobjects',
-		},
+		dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' },
 		build = ':TSUpdate',
 	},
-
 	{ -- Telescope
 		'nvim-telescope/telescope.nvim',
 		branch = '0.1.x',
@@ -74,27 +69,16 @@ require('lazy').setup({
 	},
 
 	-- File system
-	{ 'stevearc/oil.nvim',     opts = {} },
-
-	-- Terminal TODO add these plugins and tinker
-	{ "willothy/flatten.nvim", opts = {}, lazy = false, priority = 1001 },
-	{ "chomosuke/term-edit.nvim", lazy = false },
+	{ 'stevearc/oil.nvim',       opts = {} },
 
 	-- VCS
 	'tpope/vim-fugitive',
-	{ 'lewis6991/gitsigns.nvim',             opts = { on_attach = require('jglass.keymaps').gitsigns_mappings, }, },
+	{ 'lewis6991/gitsigns.nvim', opts = { on_attach = require('jglass.keymaps').gitsigns_mappings, }, },
 
 	-- UI
-	{ "catppuccin/nvim",                     name = "catppuccin", },
-	{ "rose-pine/nvim",                      name = "rose-pine" },
+	"xiyaowong/transparent.nvim",
 	{ 'folke/which-key.nvim',                opts = {} },
 	{ 'nvim-lualine/lualine.nvim',           opts = require("jglass.config.lualine") },
-	-- TODO
-	-- https://github.com/ellisonleao/glow.nvim
-	-- https://github.com/iamcco/markdown-preview.nvim
-	-- https://github.com/davidgranstrom/nvim-markdown-preview
-	-- https://github.com/richardbizik/nvim-toc
-	-- https://github.com/sunjon/Shade.nvim
 
 	-- QoL
 	{ 'lukas-reineke/indent-blankline.nvim', main = "ibl" },

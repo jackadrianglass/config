@@ -4,8 +4,6 @@
 local M = {}
 
 M.general_mappings = function()
-	-- TODO remove this
-	vim.keymap.set({ 'n', 'v' }, "<leader>c", require('silicon').capture, { desc = "Capture selection to clipboard" })
 	vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 	vim.keymap.set('t', '<C-e>', '<C-\\><C-n>', { silent = true })
 

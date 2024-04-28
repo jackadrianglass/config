@@ -16,5 +16,6 @@ vim.opt.timeout = true
 vim.opt.timeoutlen = 300
 vim.opt.completeopt = 'menuone,noselect'
 vim.opt.termguicolors = true
+vim.opt.clipboard = "unnamedplus"
 
-vim.cmd.colorscheme 'catppuccin-macchiato'
+vim.cmd.colorscheme 'rose-pine-moon'
