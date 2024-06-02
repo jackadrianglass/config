@@ -2,7 +2,7 @@
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {
-    mappings = require("jglass.keymaps").telescope_mappings()
+    mappings = require("jglass.keymaps").telescope()
   },
 }
 

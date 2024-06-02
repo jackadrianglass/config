@@ -3,7 +3,7 @@
 
 local M = {}
 
-M.general_mappings = function()
+M.general = function()
 	vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 	vim.keymap.set('t', '<C-e>', '<C-\\><C-n>', { silent = true })
 
@@ -67,7 +67,7 @@ end
 
 
 -- See `:help telescope` and `:help telescope.setup()`
-M.telescope_mappings = function()
+M.telescope = function()
 	return {
 		i = {
 			['<C-j>'] = require('telescope.actions').move_selection_next,
@@ -78,12 +78,14 @@ M.telescope_mappings = function()
 	}
 end
 
-M.gitsigns_mappings = function(bufnr)
-	vim.keymap.set('n', '[h', require('gitsigns').prev_hunk, { buffer = bufnr, desc = '[G]o to [P]revious Hunk' })
-	vim.keymap.set('n', ']h', require('gitsigns').next_hunk, { buffer = bufnr, desc = '[G]o to [N]ext Hunk' })
-	vim.keymap.set('n', '<leader>gh', require('gitsigns').preview_hunk,
-		{ buffer = bufnr, desc = 'Preview [G]it [H]unk' })
-	vim.keymap.set('n', '<leader>gd', require('gitsigns').diffthis, { buffer = bufnr, desc = '[G]it [D]iff this' })
+M.flash = function()
+	return {
+		{ "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+		{ "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+		{ "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+		{ "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+		{ "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+	}
 end
 
 return M

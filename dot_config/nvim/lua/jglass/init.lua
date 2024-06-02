@@ -9,7 +9,7 @@ vim.g.maplocalleader = ' '
 
 require('jglass.plugins')
 require('jglass.options')
-require('jglass.keymaps').general_mappings()
+require('jglass.keymaps').general()
 require('jglass.autocommands')
 require('jglass.setup')
 
