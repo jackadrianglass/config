@@ -57,6 +57,7 @@ M.general = function()
 	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = '[G]oto [D]eclaration' })
 	vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, { desc = '[G]oto [R]eferences' })
 	vim.keymap.set('n', 'gI', vim.lsp.buf.implementation, { desc = '[G]oto [I]mplementation' })
+	vim.keymap.set('n', 'gk', vim.lsp.buf.implementation, { desc = '[G]oto [I]mplementation' })
 
 	-- See `:help K` for why this keymap
 	vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover Documentation' })

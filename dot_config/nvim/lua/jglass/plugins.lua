@@ -24,8 +24,12 @@ require('lazy').setup({
 		dependencies = {
 			{ 'j-hui/fidget.nvim' },
 			{ 'folke/neodev.nvim' },
-			{ "simrat39/rust-tools.nvim" },
 			{ "p00f/clangd_extensions.nvim" },
+			{
+				'mrcjkb/rustaceanvim',
+				version = '^5',
+				lazy = false,
+			}
 		},
 	},
 
@@ -66,14 +70,14 @@ require('lazy').setup({
 	{ 'stevearc/oil.nvim',                   opts = {} },
 
 	-- VCS
-	{ "NeogitOrg/neogit", dependencies = { "sindrets/diffview.nvim", }, config = true },
+	{ "NeogitOrg/neogit",                    dependencies = { "sindrets/diffview.nvim", }, config = true },
 
 	-- UI
-	{ "xiyaowong/transparent.nvim" },
 	{ 'folke/which-key.nvim',                opts = {} },
 
 	-- QoL
 	{ 'lukas-reineke/indent-blankline.nvim', main = "ibl" },
-	{ "folke/flash.nvim",                    keys = require('jglass.keymaps').flash(),                   event = "VeryLazy", opts = {} }
+	{ "folke/flash.nvim",                    keys = require('jglass.keymaps').flash(),     event = "VeryLazy", opts = {} },
+	{ "kazhala/close-buffers.nvim" },
 
 }, {})

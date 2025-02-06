@@ -19,18 +19,8 @@ lspconfig.lua_ls.setup {
   }
 }
 lspconfig.clangd.setup{}
-
-require('rust-tools').setup({
-  tools = {
-    inlay_hints = {
-      auto = true,
-    },
-  },
-  server = {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  }
-})
+lspconfig.ts_ls.setup{}
+-- rust is setup separately
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {

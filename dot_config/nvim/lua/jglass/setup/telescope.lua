@@ -1,10 +1,14 @@
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
-require('telescope').setup {
+local telescope = require('telescope')
+
+telescope.setup {
   defaults = {
-    mappings = require("jglass.keymaps").telescope()
+    mappings = require("jglass.keymaps").telescope(),
+	layout_strategy = "vertical",
+	previewer = false,
   },
 }
 
 -- Enable telescope fzf native, if installed
-pcall(require('telescope').load_extension, 'fzf')
+pcall(telescope.load_extension, 'fzf')

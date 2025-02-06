@@ -17,5 +17,23 @@ vim.opt.timeoutlen = 300
 vim.opt.completeopt = 'menuone,noselect'
 vim.opt.termguicolors = true
 vim.opt.clipboard = "unnamedplus"
+vim.opt.showtabline = 0
 
-vim.cmd.colorscheme 'rose-pine-moon'
+vim.g.rustaceanvim = {
+  tools = {
+    inlay_hints = {
+      auto = true,
+    },
+  },
+  server = {
+    default_settings = {
+		['rust-analyzer'] = {
+			checkOnSave = { command = "clippy" },
+		}
+    },
+  },
+}
+
+vim.g.have_nerd_font = true
+
+vim.cmd.colorscheme 'rose-pine-main'
