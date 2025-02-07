@@ -38,6 +38,9 @@ M.general = function()
 
 	vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, { desc = '[R]ename' })
 	vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, { desc = '[L]sp code [A]ction' })
+	vim.keymap.set("n", "<leader>c", function()
+		require("tiny-code-action").code_action()
+	end, { noremap = true, silent = true })
 	vim.keymap.set('n', '<leader>ld', vim.diagnostic.open_float, { desc = '[L]sp show [D]iagnostic' })
 	vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, { desc = '[L]sp [F]ormat' })
 

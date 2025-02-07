@@ -29,6 +29,22 @@ require('lazy').setup({
 				'mrcjkb/rustaceanvim',
 				version = '^5',
 				lazy = false,
+			},
+			{
+				"amrbashir/nvim-docs-view",
+				lazy = true,
+				cmd = "DocsViewToggle",
+				opts = {
+					position = "right",
+					width = 60
+				}
+			},
+			{
+				"rachartier/tiny-code-action.nvim",
+				event = "LspAttach",
+				config = function()
+					require('tiny-code-action').setup({ backend = "delta" })
+				end
 			}
 		},
 	},
