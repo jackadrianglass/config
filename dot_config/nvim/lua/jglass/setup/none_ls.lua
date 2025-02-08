@@ -1,4 +1,4 @@
-local null_ls, ok = pcall(require, 'null-ls')
+local ok, null_ls = pcall(require, 'null-ls')
 
 if not ok then
   return
