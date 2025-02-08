@@ -21,6 +21,7 @@ lspconfig.lua_ls.setup {
 lspconfig.clangd.setup{}
 lspconfig.ts_ls.setup{}
 -- rust is setup separately
+-- haskell is setup separately
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {

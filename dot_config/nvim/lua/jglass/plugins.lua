@@ -26,6 +26,11 @@ require('lazy').setup({
 			{ 'folke/neodev.nvim' },
 			{ "p00f/clangd_extensions.nvim" },
 			{
+				'mrcjkb/haskell-tools.nvim',
+				version = '^4', -- Recommended
+				lazy = false, -- This plugin is already lazy
+			},
+			{
 				'mrcjkb/rustaceanvim',
 				version = '^5',
 				lazy = false,
@@ -45,7 +50,8 @@ require('lazy').setup({
 				config = function()
 					require('tiny-code-action').setup({ backend = "delta" })
 				end
-			}
+			},
+			{ "nvimtools/none-ls.nvim" },
 		},
 	},
 
@@ -67,7 +73,10 @@ require('lazy').setup({
 
 	{
 		'nvim-treesitter/nvim-treesitter',
-		dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' },
+		dependencies = {
+			'nvim-treesitter/nvim-treesitter-textobjects',
+			"nushell/tree-sitter-nu",
+		},
 		build = ':TSUpdate',
 	},
 	{
@@ -83,17 +92,37 @@ require('lazy').setup({
 	},
 
 	-- File system
-	{ 'stevearc/oil.nvim',                   opts = {} },
+	{ 'stevearc/oil.nvim',      opts = {} },
 
 	-- VCS
-	{ "NeogitOrg/neogit",                    dependencies = { "sindrets/diffview.nvim", }, config = true },
+	{ "lewis6991/gitsigns.nvim" },
 
 	-- UI
-	{ 'folke/which-key.nvim',                opts = {} },
+	{ 'folke/which-key.nvim',   opts = {} },
+	{
+		"rachartier/tiny-inline-diagnostic.nvim",
+		event = "VeryLazy",
+		priority = 1000,
+		config = function()
+			require('tiny-inline-diagnostic').setup()
+			vim.diagnostic.config({ virtual_text = false })
+		end
+	},
+	{ 'nvim-lualine/lualine.nvim' },
+	{ "hiphish/rainbow-delimiters.nvim" },
 
 	-- QoL
+	{ "mangelozzi/rgflow.nvim" },
 	{ 'lukas-reineke/indent-blankline.nvim', main = "ibl" },
-	{ "folke/flash.nvim",                    keys = require('jglass.keymaps').flash(),     event = "VeryLazy", opts = {} },
+	{ "folke/flash.nvim",                    keys = require('jglass.keymaps').flash(), event = "VeryLazy", opts = {} },
 	{ "kazhala/close-buffers.nvim" },
+	{
+		"kylechui/nvim-surround",
+		version = "*",
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({})
+		end
+	}
 
 }, {})
