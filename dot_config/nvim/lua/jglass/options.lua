@@ -20,18 +20,21 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.showtabline = 0
 
 vim.g.rustaceanvim = {
-  tools = {
-    inlay_hints = {
-      auto = true,
-    },
-  },
-  server = {
-    default_settings = {
-		['rust-analyzer'] = {
-			checkOnSave = { command = "clippy" },
-		}
-    },
-  },
+	tools = {
+		inlay_hints = {
+			auto = true,
+		},
+		diagnostic = {
+			refreshSupport = false,
+		},
+	},
+	server = {
+		default_settings = {
+			['rust-analyzer'] = {
+				checkOnSave = { command = "clippy" },
+			}
+		},
+	},
 }
 
 vim.g.have_nerd_font = true

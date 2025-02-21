@@ -92,13 +92,13 @@ require('lazy').setup({
 	},
 
 	-- File system
-	{ 'stevearc/oil.nvim',      opts = {} },
+	{ 'stevearc/oil.nvim',       opts = {} },
 
 	-- VCS
-	{ "lewis6991/gitsigns.nvim" },
+	{ "lewis6991/gitsigns.nvim", opts = {} },
 
 	-- UI
-	{ 'folke/which-key.nvim',   opts = {} },
+	{ 'folke/which-key.nvim',    opts = {} },
 	{
 		"rachartier/tiny-inline-diagnostic.nvim",
 		event = "VeryLazy",
@@ -112,7 +112,6 @@ require('lazy').setup({
 	{ "hiphish/rainbow-delimiters.nvim" },
 
 	-- QoL
-	{ "mangelozzi/rgflow.nvim" },
 	{ 'lukas-reineke/indent-blankline.nvim', main = "ibl" },
 	{ "folke/flash.nvim",                    keys = require('jglass.keymaps').flash(), event = "VeryLazy", opts = {} },
 	{ "kazhala/close-buffers.nvim" },
@@ -123,6 +122,8 @@ require('lazy').setup({
 		config = function()
 			require("nvim-surround").setup({})
 		end
-	}
+	},
+	{ "ThePrimeagen/harpoon", branch = "harpoon2" }
 
 }, {})
+

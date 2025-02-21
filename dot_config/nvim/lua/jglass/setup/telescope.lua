@@ -12,3 +12,4 @@ telescope.setup {
 
 -- Enable telescope fzf native, if installed
 pcall(telescope.load_extension, 'fzf')
+

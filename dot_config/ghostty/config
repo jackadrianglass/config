@@ -1,0 +1,12 @@
+# Run `ghostty +show-config --default --docs` to view a list of
+# all available config options and their default values.
+#
+# Additionally, each config option is also explained in detail
+# on Ghostty's website, at https://ghostty.org/docs/config.
+
+theme = rose-pine
+command = /usr/bin/nu
+window-decoration = false
+font-family = "Hasklug Nerd Font Mono"
+font-size = 18
+gtk-single-instance = true
