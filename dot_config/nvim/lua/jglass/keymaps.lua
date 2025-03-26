@@ -33,19 +33,15 @@ M.general = function()
 	vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 	vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 	vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
-	vim.keymap.set('n', '<leader>ss', require('telescope.builtin').lsp_document_symbols,
-		{ desc = '[S]search document [S]ymbols' })
+	vim.keymap.set('n', '<leader>ss', require('telescope.builtin').lsp_document_symbols, { desc = '[S]search document [S]ymbols' })
 
 	vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, { desc = '[R]ename' })
 	vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, { desc = '[L]sp code [A]ction' })
-	vim.keymap.set("n", "<leader>c", function()
-		require("tiny-code-action").code_action()
-	end, { noremap = true, silent = true })
+	vim.keymap.set("n", "<leader>c", function() require("tiny-code-action").code_action{} end, { noremap = true, silent = true })
 	vim.keymap.set('n', '<leader>ld', vim.diagnostic.open_float, { desc = '[L]sp show [D]iagnostic' })
 	vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, { desc = '[L]sp [F]ormat' })
 
-	vim.keymap.set('n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols,
-		{ desc = '[W]orkspace [S]ymbols' })
+	vim.keymap.set('n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, { desc = '[W]orkspace [S]ymbols' })
 	vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, { desc = '[W]orkspace [A]dd Folder' })
 	vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, { desc = '[W]orkspace [R]emove Folder' })
 	vim.keymap.set('n', '<leader>wl', function()
@@ -89,22 +85,22 @@ M.general = function()
 		}):find()
 	end
 
-	vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window" })
-	vim.keymap.set("n", "<C-a>", function() harpoon:list():add() end)
+	vim.keymap.set("n", "<leader>h", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window" })
+	vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
 
-	vim.keymap.set("n", "<C-1>", function() harpoon:list():select(1) end)
-	vim.keymap.set("n", "<C-2>", function() harpoon:list():select(2) end)
-	vim.keymap.set("n", "<C-3>", function() harpoon:list():select(3) end)
-	vim.keymap.set("n", "<C-4>", function() harpoon:list():select(4) end)
-	vim.keymap.set("n", "<C-5>", function() harpoon:list():select(5) end)
-	vim.keymap.set("n", "<C-6>", function() harpoon:list():select(6) end)
-	vim.keymap.set("n", "<C-7>", function() harpoon:list():select(7) end)
-	vim.keymap.set("n", "<C-8>", function() harpoon:list():select(8) end)
-	vim.keymap.set("n", "<C-9>", function() harpoon:list():select(9) end)
+	vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end)
+	vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end)
+	vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end)
+	vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end)
+	vim.keymap.set("n", "<leader>5", function() harpoon:list():select(5) end)
+	vim.keymap.set("n", "<leader>6", function() harpoon:list():select(6) end)
+	vim.keymap.set("n", "<leader>7", function() harpoon:list():select(7) end)
+	vim.keymap.set("n", "<leader>8", function() harpoon:list():select(8) end)
+	vim.keymap.set("n", "<leader>9", function() harpoon:list():select(9) end)
 
 	-- Toggle previous & next buffers stored within Harpoon list
-	vim.keymap.set("n", "<C-S-H>", function() harpoon:list():prev() end)
-	vim.keymap.set("n", "<C-S-L>", function() harpoon:list():next() end)
+	vim.keymap.set("n", "<C-h>", function() harpoon:list():prev() end)
+	vim.keymap.set("n", "<C-l>", function() harpoon:list():next() end)
 end
 
 

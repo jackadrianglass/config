@@ -5,7 +5,7 @@ local telescope = require('telescope')
 telescope.setup {
   defaults = {
     mappings = require("jglass.keymaps").telescope(),
-	layout_strategy = "vertical",
+	layout_strategy = "center",
 	previewer = false,
   },
 }
