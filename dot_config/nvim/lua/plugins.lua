@@ -43,7 +43,24 @@ require('lazy').setup({
           require('tiny-code-action').setup { backend = 'delta' }
         end,
       },
-      { 'nvimtools/none-ls.nvim' },
+      {
+        'nvimtools/none-ls.nvim',
+        config = function()
+          local null_ls = require 'null-ls'
+
+          require('null-ls').setup {
+            sources = {
+              null_ls.builtins.formatting.stylua,
+              null_ls.builtins.formatting.mdformat,
+
+              null_ls.builtins.code_actions.proselint,
+              null_ls.builtins.diagnostics.proselint,
+              null_ls.builtins.completion.spell,
+              null_ls.builtins.formatting.stylua,
+            },
+          }
+        end,
+      },
     },
   },
 
@@ -118,9 +135,27 @@ require('lazy').setup({
       {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'make',
-        cond = function() return vim.fn.executable 'make' == 1 end,
+        cond = function()
+          return vim.fn.executable 'make' == 1
+        end,
       },
+      { 'blanktiger/telescope-rg.nvim' },
     },
+    config = function()
+      -- See `:help telescope` and `:help telescope.setup()`
+      local telescope = require 'telescope'
+
+      telescope.setup {
+        defaults = {
+          mappings = require('keymaps').telescope(),
+          layout_strategy = 'center',
+          previewer = false,
+        },
+      }
+
+      pcall(telescope.load_extension, 'fzf')
+      pcall(telescope.load_extension, 'ripgrep')
+    end,
   },
 
   { 'stevearc/oil.nvim', opts = {} },
@@ -135,11 +170,10 @@ require('lazy').setup({
       vim.diagnostic.config { virtual_text = false }
     end,
   },
-  { 'nvim-lualine/lualine.nvim' },
   { 'hiphish/rainbow-delimiters.nvim' },
 
   { 'lukas-reineke/indent-blankline.nvim', main = 'ibl' },
-  { 'folke/flash.nvim', keys = require('jglass.keymaps').flash(), event = 'VeryLazy', opts = {} },
+  { 'folke/flash.nvim', keys = require('keymaps').flash(), event = 'VeryLazy', opts = {} },
   { 'kazhala/close-buffers.nvim' },
   {
     'kylechui/nvim-surround',
@@ -152,3 +186,99 @@ require('lazy').setup({
   { 'ThePrimeagen/harpoon', branch = 'harpoon2' },
   { 'OXY2DEV/helpview.nvim', lazy = false },
 }, {})
+
+-- [[ Configure LSP ]]
+require('neodev').setup()
+
+local capabilities = require('blink.cmp').get_lsp_capabilities()
+local lspconfig = require 'lspconfig'
+
+lspconfig.gleam.setup { capabilities = capabilities }
+lspconfig.gopls.setup { capabilities = capabilities }
+lspconfig.lua_ls.setup { capabilities = capabilities }
+lspconfig.clangd.setup { capabilities = capabilities }
+lspconfig.ts_ls.setup { capabilities = capabilities }
+-- rustaceanvim does the setup
+vim.g.rustaceanvim = {
+	tools = {
+		inlay_hints = {
+			auto = true,
+		},
+		diagnostic = {
+			refreshSupport = false,
+		},
+	},
+	server = {
+		default_settings = {
+			['rust-analyzer'] = {
+				checkOnSave = { command = "clippy" },
+			}
+		},
+	},
+}
+
+-- haskell is setup separately
+
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+  virtual_text = false,
+})
+
+-- [[ Configure Treesitter ]]
+-- See `:help nvim-treesitter`
+require('nvim-treesitter.configs').setup {
+  -- Add languages to be installed here that you want installed for treesitter
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'vimdoc', 'vim', 'wgsl', 'gleam' },
+  auto_install = true,
+
+  highlight = { enable = true },
+  indent = { enable = true },
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ['aa'] = '@parameter.outer', -- around argument
+        ['ia'] = '@parameter.inner', -- inner argument
+        ['af'] = '@function.outer',
+        ['if'] = '@function.inner',
+        ['ac'] = '@class.outer',
+        ['ic'] = '@class.inner',
+      },
+    },
+    move = {
+      enable = true,
+      set_jumps = true, -- whether to set jumps in the jumplist
+      -- TODO experiment with text object jumps here
+      goto_next_start = {
+        [']a'] = '@parameter.inner',
+        [']f'] = '@function.outer',
+        [']c'] = '@class.outer',
+      },
+      goto_next_end = {
+        [']A'] = '@parameter.inner',
+        [']F'] = '@function.outer',
+        [']C'] = '@class.outer',
+      },
+      goto_previous_start = {
+        ['[a'] = '@parameter.inner',
+        ['[f'] = '@function.outer',
+        ['[c'] = '@class.outer',
+      },
+      goto_previous_end = {
+        ['[A'] = '@parameter.inner',
+        ['[F'] = '@function.outer',
+        ['[C'] = '@class.outer',
+      },
+    },
+    -- swap = {
+    --   enable = true,
+    --   swap_next = {
+    --     ['<leader>a'] = '@parameter.inner',
+    --   },
+    --   swap_previous = {
+    --     ['<leader>A'] = '@parameter.inner',
+    --   },
+    -- },
+  },
+}

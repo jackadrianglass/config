@@ -1,5 +1,0 @@
-require("jglass.setup.lsp")
-require("jglass.setup.lualine")
-require("jglass.setup.none_ls")
-require("jglass.setup.telescope")
-require("jglass.setup.treesitter")

@@ -7,11 +7,10 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-require('jglass.plugins')
-require('jglass.options')
-require('jglass.keymaps').general()
-require('jglass.autocommands')
-require('jglass.setup')
+require('plugins')
+require('options')
+require('keymaps').general()
+require('autocommands')
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
