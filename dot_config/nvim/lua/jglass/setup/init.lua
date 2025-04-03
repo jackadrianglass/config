@@ -1,4 +1,3 @@
-require("jglass.setup.cmp")
 require("jglass.setup.lsp")
 require("jglass.setup.lualine")
 require("jglass.setup.none_ls")

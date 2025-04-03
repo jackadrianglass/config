@@ -101,6 +101,9 @@ M.general = function()
 	-- Toggle previous & next buffers stored within Harpoon list
 	vim.keymap.set("n", "<C-h>", function() harpoon:list():prev() end)
 	vim.keymap.set("n", "<C-l>", function() harpoon:list():next() end)
+
+	vim.keymap.set('n', '<leader>dc', function() require('dap').continue() end)
+	vim.keymap.set('n', '<leader>db', function() require('dap').toggle_breakpoint() end)
 end
 
 
